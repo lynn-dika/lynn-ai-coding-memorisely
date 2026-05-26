@@ -34,8 +34,9 @@ function Pricing() {
         buttonVariant: 'tertiary',
     };
     const entreprisePlan = {
-        title: 'very important card',
-        price: '$100/mo.',
+        title: 'Entreprise',
+        priceAmount: 'Custom',
+        pricePeriod: null,
         includesText: 'Everything in Pro, plus:',
         features: [
             'Unlimited Agent requests',
