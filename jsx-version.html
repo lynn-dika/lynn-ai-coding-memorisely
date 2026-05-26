@@ -24,16 +24,16 @@ wh<!DOCTYPE html>
 
         // Same card UI, written as a JSX component (HTML-like syntax inside JavaScript)
         // This component is reusable - we can create multiple cards by passing different data
-        function PricingCard({ title, price, pricePeriod, includesText, features, buttonText, buttonVariant }) {
+        function PricingCard({ title, priceAmount, pricePeriod, includesText, features, buttonText, buttonVariant }) {
             return (
                 // JSX uses "className" instead of "class" because "class" is a reserved word in JavaScript
                 <div className="card">
                     {/* Curly braces { } let you insert JavaScript expressions into JSX */}
                     <h1 className="card-title">{title}</h1>
                     <p className="card-price">
-                        <span className="card-price-amount">{price}</span>
-                        <span className="card-price-period">{pricePeriod}</span>
-                         </p>
+                        <span className="card-price-amount">{priceAmount}</span>
+                        {pricePeriod != null && <span className="card-price-period">{pricePeriod}</span>}
+                    </p>
                     <div className="card-content">
                         <p className="includes-text">{includesText}</p>
                         <ul className="features-list">
@@ -58,7 +58,7 @@ wh<!DOCTYPE html>
             // These objects hold all the content for each pricing card
             const hobbyPlan = {
                 title: 'Hobby',
-                price: 'Free',
+                priceAmount: 'Free',
                 pricePeriod: null,
                 includesText: 'Includes:',
                 features: [
@@ -72,7 +72,7 @@ wh<!DOCTYPE html>
             };
             const proPlan = {
                 title: 'Pro',
-                price: '$20',
+                priceAmount: '$20',
                 pricePeriod: '/mo.',
                 includesText: 'Everything in Hobby, plus:',
                 features: [
@@ -87,7 +87,7 @@ wh<!DOCTYPE html>
 
                 const entreprisePlan = {
                     title: 'Entreprise',
-                    price: 'Custom',
+                    priceAmount: 'Custom',
                     pricePeriod: null,
                     includesText: 'Everything in Pro, plus:',
                     features: [
